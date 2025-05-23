@@ -2,30 +2,30 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Para Leticia, com amor</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         @keyframes float {
             0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-20px); }
+            50% { transform: translateY(-10px); }
         }
         @keyframes pulse {
             0%, 100% { transform: scale(1); opacity: 0.7; }
-            50% { transform: scale(1.1); opacity: 1; }
+            50% { transform: scale(1.05); opacity: 1; }
         }
         @keyframes heartBeat {
             0% { transform: scale(1); }
-            14% { transform: scale(1.3); }
+            14% { transform: scale(1.2); }
             28% { transform: scale(1); }
-            42% { transform: scale(1.3); }
+            42% { transform: scale(1.2); }
             70% { transform: scale(1); }
         }
         .floating { animation: float 3s ease-in-out infinite; }
         .pulse { animation: pulse 2s infinite; }
         .heart-beat { animation: heartBeat 1.3s ease-in-out infinite; }
-        .text-shadow { text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); }
+        .text-shadow { text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); }
         .bg-gradient-romantic {
             background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
         }
@@ -41,46 +41,60 @@
             50% { opacity: 0.8; }
             100% { opacity: 0; transform: translate(-50%, -100vh) scale(1); }
         }
+        /* Mobile optimizations */
+        .touch-target {
+            min-width: 48px;
+            min-height: 48px;
+        }
+        .text-size-accessible {
+            font-size: clamp(16px, 4vw, 22px);
+        }
+        .heading-size {
+            font-size: clamp(24px, 6vw, 36px);
+        }
+        .button-text {
+            font-size: clamp(18px, 4.5vw, 20px);
+        }
     </style>
 </head>
-<body class="bg-gradient-romantic min-h-screen overflow-hidden flex flex-col items-center justify-center p-4 font-sans">
+<body class="bg-gradient-romantic min-h-screen overflow-hidden flex flex-col items-center justify-center p-4 font-sans touch-manipulation">
     <div class="absolute inset-0 overflow-hidden" id="hearts-container"></div>
     
-    <div class="relative z-10 text-center max-w-2xl mx-auto">
-        <div class="floating mb-8">
-            <i class="fas fa-heart text-pink-600 text-6xl heart-beat"></i>
-            <h1 class="text-4xl md:text-5xl font-bold text-pink-700 mt-4 text-shadow">Para Leticia</h1>
+    <div class="relative z-10 text-center w-full max-w-md mx-auto px-2">
+        <div class="floating mb-6">
+            <i class="fas fa-heart text-pink-600 text-5xl heart-beat touch-target" aria-hidden="true"></i>
+            <h1 class="heading-size font-bold text-pink-700 mt-4 text-shadow">Para Leticia</h1>
         </div>
         
-        <div class="bg-white bg-opacity-80 rounded-xl p-6 md:p-8 shadow-xl mb-8 transform transition-all hover:scale-105">
-            <p class="text-lg md:text-xl text-gray-800 mb-4 italic">"O amor não se vê com os olhos, mas com o coração."</p>
-            <p class="text-gray-700">Hoje quero te dizer o quanto você é especial para mim...</p>
+        <div class="bg-white bg-opacity-80 rounded-xl p-5 shadow-lg mb-6 transform transition-all hover:scale-[1.02]">
+            <p class="text-size-accessible text-gray-800 mb-3 italic">"O amor não se vê com os olhos, mas com o coração."</p>
+            <p class="text-size-accessible text-gray-700">Hoje quero te dizer o quanto você é especial para mim...</p>
         </div>
         
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
-            <div class="bg-pink-100 bg-opacity-70 p-4 rounded-lg transform transition-all hover:scale-105">
-                <i class="fas fa-smile-beam text-pink-500 text-3xl mb-2"></i>
-                <p class="font-medium text-pink-700">Seu sorriso ilumina meus dias</p>
+        <div class="grid grid-cols-1 gap-3 mb-6">
+            <div class="bg-pink-100 bg-opacity-70 p-3 rounded-lg transform transition-all hover:scale-[1.02]">
+                <i class="fas fa-smile-beam text-pink-500 text-2xl mb-1 touch-target" aria-hidden="true"></i>
+                <p class="font-medium text-pink-700 text-size-accessible">Seu sorriso ilumina meus dias</p>
             </div>
-            <div class="bg-red-100 bg-opacity-70 p-4 rounded-lg transform transition-all hover:scale-105">
-                <i class="fas fa-heart text-red-500 text-3xl mb-2"></i>
-                <p class="font-medium text-red-700">Seu amor aquece meu coração</p>
+            <div class="bg-red-100 bg-opacity-70 p-3 rounded-lg transform transition-all hover:scale-[1.02]">
+                <i class="fas fa-heart text-red-500 text-2xl mb-1 touch-target" aria-hidden="true"></i>
+                <p class="font-medium text-red-700 text-size-accessible">Seu amor aquece meu coração</p>
             </div>
-            <div class="bg-purple-100 bg-opacity-70 p-4 rounded-lg transform transition-all hover:scale-105">
-                <i class="fas fa-star text-purple-500 text-3xl mb-2"></i>
-                <p class="font-medium text-purple-700">Você é a estrela da minha vida</p>
+            <div class="bg-purple-100 bg-opacity-70 p-3 rounded-lg transform transition-all hover:scale-[1.02]">
+                <i class="fas fa-star text-purple-500 text-2xl mb-1 touch-target" aria-hidden="true"></i>
+                <p class="font-medium text-purple-700 text-size-accessible">Você é a estrela da minha vida</p>
             </div>
         </div>
         
         <div class="pulse">
-            <button id="love-btn" class="bg-gradient-to-r from-pink-500 to-red-500 text-white font-bold py-3 px-8 rounded-full shadow-lg hover:shadow-xl transform hover:scale-110 transition-all">
-                <i class="fas fa-heart mr-2"></i> Clique aqui, amor
+            <button id="love-btn" class="bg-gradient-to-r from-pink-500 to-red-500 text-white font-bold py-3 px-6 rounded-full shadow-lg hover:shadow-xl transform hover:scale-[1.05] transition-all w-full max-w-xs mx-auto touch-target button-text" aria-label="Mostrar mensagem de amor">
+                <i class="fas fa-heart mr-2" aria-hidden="true"></i> Clique aqui, amor
             </button>
         </div>
     </div>
     
-    <div class="fixed bottom-4 left-0 right-0 text-center">
-        <p class="text-white text-opacity-80 text-sm">Feito com <i class="fas fa-heart text-red-400"></i> especialmente para você</p>
+    <div class="fixed bottom-2 left-0 right-0 text-center">
+        <p class="text-white text-opacity-80 text-sm">Feito com <i class="fas fa-heart text-red-400" aria-hidden="true"></i> especialmente para você</p>
     </div>
 
     <script>
@@ -98,13 +112,13 @@
                 "Minha vida é melhor com você"
             ];
             
-            // Criar corações flutuantes aleatórios
+            // Otimizado para mobile: menos corações e mais espaçados
             function createFloatingHearts() {
                 const heart = document.createElement('div');
-                heart.innerHTML = '<i class="fas fa-heart"></i>';
+                heart.innerHTML = '<i class="fas fa-heart" aria-hidden="true"></i>';
                 heart.className = 'heart text-pink-500';
                 
-                const size = Math.random() * 20 + 10;
+                const size = Math.random() * 15 + 8;
                 const xPos = Math.random() * 100;
                 const duration = Math.random() * 3 + 2;
                 
@@ -120,24 +134,29 @@
                 }, duration * 1000);
             }
             
-            // Criar vários corações inicialmente
-            for (let i = 0; i < 15; i++) {
-                setTimeout(createFloatingHearts, i * 300);
+            // Criar menos corações inicialmente para performance mobile
+            for (let i = 0; i < 8; i++) {
+                setTimeout(createFloatingHearts, i * 400);
             }
             
-            // Continuar criando corações
-            setInterval(createFloatingHearts, 500);
+            // Intervalo maior para economizar bateria
+            setInterval(createFloatingHearts, 800);
             
-            // Efeito especial ao clicar no botão
+            // Efeito especial ao clicar no botão - otimizado para touch
             btn.addEventListener('click', function() {
-                // Criar explosão de corações
-                for (let i = 0; i < 30; i++) {
+                // Vibrar se suportado (feedback tátil)
+                if ('vibrate' in navigator) {
+                    navigator.vibrate(50);
+                }
+                
+                // Criar explosão de corações reduzida
+                for (let i = 0; i < 20; i++) {
                     setTimeout(() => {
                         const heart = document.createElement('div');
-                        heart.innerHTML = '<i class="fas fa-heart"></i>';
+                        heart.innerHTML = '<i class="fas fa-heart" aria-hidden="true"></i>';
                         heart.className = 'heart text-red-500';
                         
-                        const size = Math.random() * 25 + 15;
+                        const size = Math.random() * 20 + 10;
                         const xPos = Math.random() * 80 + 10;
                         
                         heart.style.left = `${xPos}%`;
@@ -149,17 +168,17 @@
                         
                         setTimeout(() => {
                             heart.remove();
-                        }, 3000);
-                    }, i * 50);
+                        }, 2000);
+                    }, i * 70);
                 }
                 
-                // Mostrar mensagem aleatória
+                // Mostrar mensagem aleatória com tamanho maior para mobile
                 const randomMsg = messages[Math.floor(Math.random() * messages.length)];
                 const msgElement = document.createElement('div');
-                msgElement.className = 'fixed inset-0 flex items-center justify-center z-50';
+                msgElement.className = 'fixed inset-0 flex items-center justify-center z-50 px-4';
                 msgElement.innerHTML = `
-                    <div class="bg-white bg-opacity-90 rounded-xl p-6 max-w-sm mx-auto shadow-2xl animate-bounce">
-                        <p class="text-2xl font-bold text-pink-600">${randomMsg}</p>
+                    <div class="bg-white bg-opacity-90 rounded-xl p-5 w-full max-w-xs shadow-2xl animate-bounce">
+                        <p class="text-xl font-bold text-pink-600 text-center">${randomMsg}</p>
                     </div>
                 `;
                 
@@ -167,13 +186,18 @@
                 
                 setTimeout(() => {
                     msgElement.remove();
-                }, 2000);
+                }, 1500);
                 
                 // Efeito de pulso no botão
                 btn.classList.remove('pulse');
-                void btn.offsetWidth; // Trigger reflow
+                void btn.offsetWidth;
                 btn.classList.add('pulse');
             });
+
+            // Prevenir zoom com toque duplo
+            document.addEventListener('dblclick', function(e) {
+                e.preventDefault();
+            }, { passive: false });
         });
     </script>
 </body>
